@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="styles.css">
+  
+  <title>Frontend Mentor | FAQ Accordion Card</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  
+</head>
+<body>
+  <div class="imageContainer">
+    <img class="main-Image-Mobile" src="images/illustration-woman-online-mobile.svg" alt="Woman standing in front of a TV">
+    <img class="orangeImageDesktop" src="images/illustration-box-desktop.svg" alt="Orange Box">
+  </div>
+  <div class="container">
+    <img class="main-Image-Desktop" src="images/illustration-woman-online-desktop.svg" alt="Woman standing in front of a TV">
+    
+    <img class="imgBackgroundDesktop" src="images/bg-pattern-desktop.svg" alt="image shadow">
+    <div class="subContainer">
+      <h1 class="heading">FAQ</h1>
+      <div class="accordion-Container">
+        <div class="accordion-Dropdown">
+          <button class="accordion-Button" >How many team members can I invite?<img class="dropdown-Arrow" src="images/icon-arrow-down.svg" alt="Arrow Down"></button>
+        </div>
+        <p class="accordion-Paragraph">You can invite up to 2 additional users on the Free plan. There is no limit on team members for the Premium plan.</p>
+        <hr>
+        <div class="accordion-Dropdown">
+          <button class="accordion-Button">What is the maximum file upload size?<img class="dropdown-Arrow" src="images/icon-arrow-down.svg" alt="Arrow Down"></button>
+          
+        </div>
+        <p class="accordion-Paragraph">No more than 2GB. All files in your account must fit your allotted storage space.</p>
+        <hr>
+        <div class="accordion-Dropdown">
+          <button class="accordion-Button">How do I reset my password?<img class="dropdown-Arrow" src="images/icon-arrow-down.svg" alt="Arrow Down"></button>
+          
+        </div>
+        <p class="accordion-Paragraph">Click “Forgot password” from the login page or “Change password” from your profile page. A reset link will be emailed to you.</p>
+        <hr>
+        <div class="accordion-Dropdown">
+          <button class="accordion-Button">Can I cancel my subscription?<img class="dropdown-Arrow" src="images/icon-arrow-down.svg" alt="Arrow Down"></button>
+          
+        </div>
+        <p class="accordion-Paragraph">Yes! Send us a message and we’ll process your request no questions asked.</p>
+        <hr>
+        <div class="accordion-Dropdown">
+          <button class="accordion-Button">Do you provide additional support?<img class="dropdown-Arrow" src="images/icon-arrow-down.svg" alt="Arrow Down"></button>
+          
+        </div>
+        <p class="accordion-Paragraph">Chat and email support is available 24/7. Phone lines are open during normal business hours.</p>
+        <hr>
+      
+      </div>
+    </div>
+  </div>
+</body>
+<script>
+
+  let accordionButton = document.getElementsByClassName('accordion-Button');
+  let accordionParagraph = document.getElementsByClassName('accordion-Paragraph');
+  let dropdownArrow = document.getElementsByClassName('dropdown-Arrow');
+
+  console.log(accordionButton)
+  console.log(accordionParagraph)
+
+
+
+  let i = 0;
+
+  for(i = 0; i < accordionButton.length; i++) {
+    let paragraph = accordionParagraph[i];
+    let arrow = dropdownArrow[i];
+    accordionButton[i].addEventListener('click', function(event) {
+      console.log('clicked')
+      if(arrow.style.transform != 'scaleY(-1)') {
+        let i = 0;
+
+        for(i = 0; i < accordionButton.length; i++) {
+          dropdownArrow[i].style.transform = 'none'
+        }
+        arrow.style.transform = 'scaleY(-1)';
+        
+      } else {
+        arrow.style.transform = 'none';
+      };
+      
+      if(paragraph.style.display != 'block') {
+        let i = 0;
+
+        for(i = 0; i < accordionButton.length; i++) {
+          accordionParagraph[i].style.display = 'none'
+        }
+        paragraph.style.display = 'block';
+        
+      } else {
+        paragraph.style.display = 'none';
+      };
+    });
+  }
+
+  
+
+</script>
+</html>
+
